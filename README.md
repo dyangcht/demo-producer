@@ -38,4 +38,4 @@ Reference:
 - https://github.com/strimzi/strimzi-kafka-operator/tree/main/examples
 - https://developers.redhat.com/blog/2019/06/17/building-apache-kafka-streams-applications-using-red-hat-amq-streams-part-1/
 - https://developers.redhat.com/blog/2019/06/06/accessing-apache-kafka-in-strimzi-part-1-introduction/
-- [Installation Guide] (https://access.redhat.com/documentation/en-us/red_hat_amq/2021.q2/html-single/deploying_and_upgrading_amq_streams_on_openshift/index#operator-hub-str)
+- [Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_amq/2021.q2/html-single/deploying_and_upgrading_amq_streams_on_openshift/index#operator-hub-str)
