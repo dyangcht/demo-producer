@@ -23,8 +23,8 @@ After create kafka cluster using operator in OCP4, you need to create the config
 - Goto "Installed Operators"
 - Click "Red Hat Integration - AMQ Streams" and the click on the tab "Kafka"
 - Click on the "my-cluster" which you created before
-. Click on the tab "YAML"
-. Put this statement as following
+- Click on the tab "YAML"
+- Put this statement as following
 ```
     metricsConfig:
       type: jmxPrometheusExporter
