@@ -17,6 +17,11 @@ public class DemoProducerApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... strings) throws Exception {
-		sender.send("Spring Kafka Producer and Consumer Example");
+		int i = 0;
+		while (true) {
+			i += 1;
+			sender.send("Spring Kafka Producer and Consumer Example: "+i);
+			Thread.sleep(200);
+		}
 	}
 }
