@@ -13,6 +13,25 @@ oc delete dc demo2
 oc delete svc demo2
 
 ```
+### Using config map for server definition
+Create the config map
+```
+kubectl create configmap spring-app-config --from-file=src/main/resources/application.properties
+```
+Change the deployment. Add the volumes and volumeMounts
+```
+          volumeMounts:
+          - name: application-config 
+            mountPath: "/deployments/config" 
+            readOnly: true
+      volumes:
+      - name: application-config
+        configMap:
+          name: spring-app-config 
+          items:
+          - key: application.properties 
+            path: application.properties
+```
 
 ### Consumer
 ```
