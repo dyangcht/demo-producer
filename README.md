@@ -20,17 +20,36 @@ oc create configmap spring-app-config --from-file=src/main/resources/application
 ```
 Change the deployment. Add the volumes and volumeMounts
 ```
-          volumeMounts:
-          - name: application-config 
-            mountPath: "/deployments/config" 
-            readOnly: true
+...
+spec:
+  strategy:
+...
+  template:
+    metadata:
+      labels:
+        deploymentconfig: demo
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+    spec:
       volumes:
-      - name: application-config
-        configMap:
-          name: spring-app-config 
-          items:
-          - key: application.properties 
-            path: application.properties
+        - name: application-config
+          configMap:
+            name: spring-app-config
+            items:
+              - key: application.properties
+                path: application.properties
+      containers:
+        - name: demo
+...
+          resources: {}
+          volumeMounts:
+            - name: application-config
+              readOnly: true
+              mountPath: /deployments/config
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
 ```
 
 ### Consumer
